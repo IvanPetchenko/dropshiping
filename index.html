@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dropshipping Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product {
+            width: 300px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dropshipping Products</h1>
+        <div class="product-list" id="productList">
+            <!-- Products will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        // Sample product data
+        var products = [
+            {
+                name: "Gena",
+                price: 19.99,
+                image: "gena.jpg"
+            },
+            {
+                name: "Tsebu",
+                price: 29.99,
+                image: "tsebu.jpg"
+            },
+            {
+                name: "Sipsik",
+                price: 39.99,
+                image: "sipsik.jpg"
+            }
+        ];
+
+        // Function to generate product cards
+        function generateProductCards() {
+            var productList = document.getElementById("productList");
+
+            // Clear existing products
+            productList.innerHTML = "";
+
+            // Generate product cards
+            products.forEach(function(product) {
+                var productCard = document.createElement("div");
+                productCard.className = "product";
+
+                var productImage = document.createElement("img");
+                productImage.src = product.image;
+                productImage.alt = product.name;
+
+                var productName = document.createElement("h3");
+                productName.textContent = product.name;
+
+                var productPrice = document.createElement("p");
+                productPrice.textContent = "Price: $" + product.price;
+
+                productCard.appendChild(productImage);
+                productCard.appendChild(productName);
+                productCard.appendChild(productPrice);
+
+                productList.appendChild(productCard);
+            });
+        }
+
+        // Call the function to generate initial product cards
+        generateProductCards();
+    </script>
+</body>
+</html>
